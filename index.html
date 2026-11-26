@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Activity Monitor Test Page</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f8fbff, #eef3ff);
+      color: #1f2937;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 20px 64px;
+    }
+
+    .hero {
+      background: #ffffff;
+      border: 1px solid #dbe4ff;
+      border-radius: 18px;
+      padding: 32px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    p {
+      line-height: 1.6;
+      margin: 0 0 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .card {
+      background: #f9fbff;
+      border: 1px solid #dbe4ff;
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.1rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    button,
+    a.button-link {
+      appearance: none;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 18px;
+      background: #2563eb;
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    button.secondary,
+    a.button-link.secondary {
+      background: #e5edff;
+      color: #1d4ed8;
+    }
+
+    .sandbox {
+      margin-top: 28px;
+      min-height: 180px;
+      border: 2px dashed #bfd0ff;
+      border-radius: 14px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+  </style>
+<script src="https://d2x98wp00fzbc2.cloudfront.net/js/131584946/1e5c30eaa5b648518eb8e7f21ee023a2.js"></script>
+<meta property="og:title" content="index2" />
+<meta property="og:description" content="A static test page designed for verifying user activity tracking including keyboard input pointer movement and navigation events" />
+<meta property="og:url" content="https://evoked-ferry-f7tq.here.now/" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://here.now/og/evoked-ferry-f7tq.jpg" />
+<meta property="og:image:width" content="1280" />
+<meta property="og:image:height" content="720" />
+<meta name="twitter:image" content="https://here.now/og/evoked-ferry-f7tq.jpg" />
+<meta name="twitter:card" content="summary_large_image" /></head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <h1>Activity Monitoring Test Page</h1>
+      <p>
+        This is a simple static page you can host with GitHub Pages and use to
+        test user activity tracking, click events, scrolling, keyboard input,
+        and idle behavior.
+      </p>
+      <p>
+        Interact with the buttons, links, form fields, and page scroll area
+        after you add your monitoring script.
+      </p>
+
+      <div class="actions">
+        <button id="primary-action" type="button">Click Me</button>
+        <button class="secondary" id="secondary-action" type="button">Secondary Action</button>
+        <a class="button-link secondary" href="#interaction-zone">Jump to Interaction Zone</a>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h2>Keyboard Input</h2>
+          <p>Type in the field below to verify keypress tracking.</p>
+          <label for="notes">Notes</label><br />
+          <input
+            id="notes"
+            name="notes"
+            type="text"
+            placeholder="Type something here"
+            style="margin-top: 10px; width: 100%; padding: 10px; border-radius: 10px; border: 1px solid #cbd5e1;"
+          />
+        </article>
+
+        <article class="card">
+          <h2>Pointer Movement</h2>
+          <p>Move your mouse around this page and hover over different elements.</p>
+          <label>
+            <input type="checkbox" id="test-checkbox" />
+            Toggle this checkbox
+          </label>
+        </article>
+
+        <article class="card">
+          <h2>Navigation</h2>
+          <p>Use this link if you want to test outbound link or anchor interactions.</p>
+          <a href="https://pages.github.com/" target="_blank" rel="noreferrer">Open GitHub Pages</a>
+        </article>
+      </div>
+
+      <section class="sandbox" id="interaction-zone">
+        <h2>Submit Your Info</h2>
+        <form id="user-form" onsubmit="handleSubmit(event)">
+          <div style="margin-bottom: 14px;">
+            <label for="username">Name</label><br />
+            <input
+              id="username"
+              name="username"
+              type="text"
+              required
+              placeholder="Enter your name"
+              style="margin-top: 6px; width: 100%; padding: 10px; border-radius: 10px; border: 1px solid #cbd5e1;"
+            />
+          </div>
+          <div style="margin-bottom: 14px;">
+            <label for="email">Email</label><br />
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              placeholder="Enter your email"
+              style="margin-top: 6px; width: 100%; padding: 10px; border-radius: 10px; border: 1px solid #cbd5e1;"
+            />
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+        <p id="form-message" style="margin-top: 14px; font-weight: 600; display: none;"></p>
+      </section>
+    </section>
+  </main>
+
+  <!-- Add your activity monitoring script below -->
+  <!-- Example: <script src="./monitor.js"></script> -->
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const msg = document.getElementById('form-message');
+      msg.textContent = `Submitted! Name: ${name}, Email: ${email}`;
+      msg.style.display = 'block';
+      msg.style.color = '#16a34a';
+      event.target.reset();
+      window.pagesense = window.pagesense || [];
+      window.pagesense.push(['identifyUser', email]);
+    }
+  </script>
+</body>
+</html>
